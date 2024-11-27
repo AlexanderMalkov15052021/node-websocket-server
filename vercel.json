@@ -1,15 +1,16 @@
 {
     "version": 2,
+    "name": "Websocket",
     "builds": [
         {
             "src": "index.ts",
             "use": "@vercel/node"
         }
     ],
-    "rewrites": [
+    "routes": [
         {
-            "source": "/(.*)",
-            "destination": "/api"
+            "src": "/(.*)",
+            "dest": "/index.ts"
         }
     ]
 }

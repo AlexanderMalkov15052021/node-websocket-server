@@ -30,14 +30,14 @@ function onConnect(wsClient) {
 
                     clients[0].send(Buffer.from(XILIN_CHARGER_REQ_CMD.OPEN_OUTPUT));
 
-                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.OPEN_OUTPUT)}`);
+                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.OPEN_OUTPUT)}, wsServer: ${wsServer}`);
 
                     break;
                 case 'Stop':
 
                     clients[0].send(Buffer.from(XILIN_CHARGER_REQ_CMD.CLOSE_OUTPUT));
 
-                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.CLOSE_OUTPUT)}`);
+                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.CLOSE_OUTPUT)}, wsServer: ${wsServer}`);
 
                     break;
                 default:

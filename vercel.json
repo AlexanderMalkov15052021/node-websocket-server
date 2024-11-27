@@ -1,0 +1,10 @@
+{
+    "version": 1,
+    "name": "websocket",
+    "builds": [
+        {
+            "src": "index.ts"
+        }
+    ],
+    "routes": []
+}

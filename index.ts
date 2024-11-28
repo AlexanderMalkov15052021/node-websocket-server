@@ -13,7 +13,7 @@ const XILIN_CHARGER_REQ_CMD = {
     CONNECTED_MSG: [0xEE, 0xFF, 0x00, 0xFF, 0xEE]// Command to establish connection (received)
 };
 
-function onConnect(wsClient) {
+function onConnect(wsClient, evt) {
     console.log('New client');
 
     clients.push(wsClient);
@@ -30,14 +30,14 @@ function onConnect(wsClient) {
 
                     clients[0].send(Buffer.from(XILIN_CHARGER_REQ_CMD.OPEN_OUTPUT));
 
-                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.OPEN_OUTPUT)}`);
+                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.OPEN_OUTPUT)}, Address: ${evt.socket.remoteAddress}`);
 
                     break;
                 case 'Stop':
 
                     clients[0].send(Buffer.from(XILIN_CHARGER_REQ_CMD.CLOSE_OUTPUT));
 
-                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.CLOSE_OUTPUT)}`);
+                    wsClient.send(`Clients num: ${clients.length}, Buffer: ${Buffer.from(XILIN_CHARGER_REQ_CMD.CLOSE_OUTPUT)}, Address: ${evt.socket.remoteAddress}`);
 
                     break;
                 default:
